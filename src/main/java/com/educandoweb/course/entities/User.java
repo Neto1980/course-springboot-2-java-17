@@ -3,10 +3,20 @@ package com.educandoweb.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+// Serializable -> faz com que os objetos possam ser transformados em cadeia de dados, onde ele possa trafegar na rede ou ser gravado em arquivos.
+
+@Entity
 public class User implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	
+	@Id 
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Long id; // Como o "id" é uma variável numérica, iremos implementar um incrementador "GeneratedValue".
 	private String name;
 	private String email;
 	private String phone;
@@ -70,6 +80,8 @@ public class User implements Serializable {
 		return Objects.hash(id);
 	}
 
+	
+	// Só utilizamos o "id" para fazer a comparação entre os objetos.
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
