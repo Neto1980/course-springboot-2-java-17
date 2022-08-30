@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@Id 
+	@Id // Indica que a primeira variável "id" será a chave primária.
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id; // Como o "id" é uma variável numérica, iremos implementar um incrementador "GeneratedValue".
 	private String name;
